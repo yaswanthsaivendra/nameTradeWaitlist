@@ -1,33 +1,33 @@
-import Image from 'next/image'
+import Image from "next/image";
 
 const RegistrarPartners = () => {
   const registrars = [
     {
-      name: 'GoDaddy',
-      logo: '/goDaddy.svg',
-      alt: 'GoDaddy logo'
+      name: "GoDaddy",
+      logo: "/goDaddy.svg",
+      alt: "GoDaddy logo",
     },
     {
-      name: 'Namecheap',
-      logo: '/nameCheap.svg',
-      alt: 'Namecheap logo'
-    }
-  ]
+      name: "Namecheap",
+      logo: "/nameCheap.svg",
+      alt: "Namecheap logo",
+    },
+  ];
 
   return (
-    <section className="py-16">
+    <section className="pt-10">
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-2xl font-semibold text-white mb-4">
+        <h2 className="text-center text-2xl font-semibold text-white">
           Trusted Domain Registrar Partners
         </h2>
-        <p className="text-center text-gray-400 mb-12">
+        <p className="text-center text-gray-400">
           Seamlessly integrated with industry-leading domain registrars
         </p>
-        <div className="flex justify-center items-center gap-12 flex-wrap">
+        <div className="flex flex-wrap items-center justify-center gap-x-12">
           {registrars.map((registrar) => (
-            <div 
+            <div
               key={registrar.name}
-              className="relative w-48 h-24 brightness-0 invert hover:brightness-100 hover:invert-0 transition-all duration-300"
+              className="relative h-24 w-32 brightness-0 invert transition-all duration-300 hover:brightness-100 hover:invert-0 md:w-48"
             >
               <Image
                 src={registrar.logo}
@@ -40,7 +40,7 @@ const RegistrarPartners = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default RegistrarPartners
+export default RegistrarPartners;
