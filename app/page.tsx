@@ -8,13 +8,14 @@ import Footer from './sections/Footer'
 const Page = () => {
   return (
     <div className="bg-gradient-to-b from-gray-900 to-gray-800">
+      {/* <Header /> */}
       <Hero />
       <Features />
       <RegistrarPartners />
       <Faqs />
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;
