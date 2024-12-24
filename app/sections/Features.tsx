@@ -5,6 +5,7 @@ import {
   BiDollar,
   BiClipboard,
 } from "react-icons/bi";
+import { MdBackupTable } from "react-icons/md";
 
 const Features = () => {
   const featureGroups = [
@@ -48,7 +49,7 @@ const Features = () => {
           title: "Price Comparison",
           description:
             "Compare domain prices across different registrars to ensure you get the best deal available.",
-          icon: BiBarChart,
+          icon: MdBackupTable,
         },
       ],
     },
