@@ -11,7 +11,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white py-40">
+    <section data-aos="fade-up" className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white py-40">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center space-y-8">
           <h1 className="text-4xl md:text-5xl font-bold leading-tight">

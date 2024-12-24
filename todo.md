@@ -1,3 +1,5 @@
+## feature1
+
 import { 
   BiRefresh,
   BiBarChart,
@@ -71,24 +73,32 @@ const Features = () => {
             }`}
           >
             <div className="flex-1">
-              <div className="flex flex-col md:flex-row md:flex-wrap justify-between gap-6">
-                {group.features.map((feature) => (
+              <div className="relative">
+                {group.features.map((feature, index) => (
                   <div 
                     key={feature.title}
-                    className="md:w-[calc(50%-12px)] lg:w-full p-6 rounded-xl bg-gradient-to-br from-gray-800/80 to-gray-800/40 backdrop-blur-sm hover:from-gray-700/80 hover:to-gray-800/60 transition-all duration-300 border border-gray-700/50 shadow-lg hover:shadow-xl"
+                    className="relative flex items-start gap-6 mb-12 last:mb-0"
                   >
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 bg-blue-600/20 rounded-lg p-2 flex-shrink-0 shadow-inner transform hover:scale-110 transition-transform duration-300">
-                        <feature.icon className="w-8 h-8 text-blue-400" />
+                    {/* Timeline line */}
+                    {index !== group.features.length - 1 && (
+                      <div className="absolute left-6 top-14 w-[2px] h-[calc(100%+48px)] bg-blue-900/50" />
+                    )}
+                    
+                    {/* Timeline dot and icon */}
+                    <div className="relative">
+                      <div className="w-12 h-12 bg-gradient-to-br from-blue-900 to-blue-800 rounded-full p-2.5 flex-shrink-0 shadow-lg shadow-blue-900/20 transform hover:scale-110 transition-all duration-300 z-10">
+                        <feature.icon className="w-7 h-7 text-blue-200" />
                       </div>
-                      <div>
-                        <h3 className="text-xl font-semibold text-white mb-2 tracking-wide">
-                          {feature.title}
-                        </h3>
-                        <p className="text-gray-400 leading-relaxed">
-                          {feature.description}
-                        </p>
-                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1 transform hover:translate-x-2 transition-transform duration-300">
+                      <h3 className="text-xl font-semibold text-white mb-2 tracking-wide">
+                        {feature.title}
+                      </h3>
+                      <p className="text-gray-400 leading-relaxed">
+                        {feature.description}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -114,3 +124,6 @@ const Features = () => {
 }
 
 export default Features
+
+
+
