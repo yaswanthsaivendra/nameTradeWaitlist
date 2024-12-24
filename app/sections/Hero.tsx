@@ -36,21 +36,22 @@ const Hero = () => {
 
             {/* HERO HEADING */}
             <h1 className="mx-auto py-2 text-3xl font-bold leading-tight md:text-6xl">
-              Turn Domains Into Opportunities <br />{" "}
-              <span className="text-primary">&lt;</span>Buy, Resell, and Manage
-              <span className="text-primary">/&gt;</span>
+              Turn Domains Into Opportunities
+              {/* <span className="text-primary">&lt;</span>Buy, Resell, and Manage
+              <span className="text-primary">/&gt;</span> */}
+              <span className="text-primary"> Buy, Resell and Manage</span>
             </h1>
 
             {/* HERO SUB-HEADING */}
-            <p className="text-md mx-auto max-w-5xl text-gray-300 md:text-xl">
-              Unlock the value of unused domains with our platform. Resell
-              easily, buy competitively from top registrars, and manage your
-              portfolio in one place. Make your domains work for you!
+            <p className="text-md mx-auto max-w-4xl text-gray-300 md:text-xl">
+              Don’t let domains sit idle. Resell with ease, buy from top
+              registrars, and manage your portfolio all in one place. Make your
+              domains work for you!
             </p>
           </div>
 
           {/* HERO WAITLIST FORM */}
-          <form onSubmit={handleSubmit} className="mx-auto max-w-md py-6">
+          <form onSubmit={handleSubmit} className="mx-auto max-w-lg py-6">
             <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
               <input
                 type="email"
@@ -62,7 +63,7 @@ const Hero = () => {
               />
               <button
                 type="submit"
-                className="flow-row flex items-center gap-x-2 rounded-lg bg-primary px-5 py-3 font-semibold text-black transition-colors duration-200 hover:bg-primary/80"
+                className="flow-row flex w-full items-center justify-center gap-x-2 rounded-lg bg-primary p-3 font-semibold text-black transition-colors duration-200 hover:bg-primary/80 md:w-[200px]"
               >
                 Join the Waitlist
                 <svg
@@ -81,9 +82,12 @@ const Hero = () => {
                 </svg>
               </button>
             </div>
-            <p className="text-md pt-2 font-normal text-primary">
-              Join {waitlistCount.toLocaleString()} others already on the
-              waitlist
+            <p className="text-md pt-2 font-normal text-gray-300">
+              Join{" "}
+              <span className="font-semibold text-primary">
+                {waitlistCount.toLocaleString()}
+              </span>{" "}
+              others already on the waitlist
             </p>
           </form>
         </div>

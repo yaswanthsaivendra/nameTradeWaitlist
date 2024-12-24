@@ -31,8 +31,8 @@ const Faqs = () => {
   return (
     <section className="bg-gray-900 py-20">
       <div className="container mx-auto px-4">
-        <div className="mb-16 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-white">
+        <div className="mb-6 text-center">
+          <h2 className="text-xl font-bold text-white md:text-3xl">
             Frequently Asked Questions
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-gray-400">
@@ -44,7 +44,7 @@ const Faqs = () => {
           {faqs.map((faq, index) => (
             <div key={index} className="relative">
               <button
-                className={`h-full w-full rounded-xl border border-gray-700 bg-gray-800/50 p-8 text-left transition-all duration-300 hover:bg-gray-800 ${
+                className={`h-full w-full rounded-xl border border-gray-700 bg-gray-800/50 px-6 py-3 text-left transition-all duration-300 hover:bg-gray-800 md:px-8 md:py-4 ${
                   openIndex === index ? "border-blue-500" : ""
                 }`}
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
@@ -58,7 +58,7 @@ const Faqs = () => {
                     />
                   </div>
                   <div>
-                    <h3 className="mb-2 text-xl font-semibold text-white">
+                    <h3 className="mb-2 text-lg font-semibold text-white md:text-xl">
                       {faq.question}
                     </h3>
                     <div

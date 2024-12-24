@@ -11,8 +11,8 @@ const ImageTile = () => {
           Seamlessly integrated with industry-leading domain registrars
         </p>
         <div className="mx-auto flex w-full flex-col justify-between gap-6 pt-4 md:w-[80%] md:flex-row">
-          <div className="h-96 w-full rounded-2xl bg-yellow-600 md:w-[49%]"></div>
-          <div className="h-96 w-full rounded-2xl bg-yellow-600 md:w-[49%]"></div>
+          <div className="h-96 w-full rounded-2xl bg-blue-400 md:w-[49%]"></div>
+          <div className="h-96 w-full rounded-2xl bg-blue-400 md:w-[49%]"></div>
         </div>
       </div>
     </section>
