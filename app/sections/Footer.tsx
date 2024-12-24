@@ -1,3 +1,5 @@
+import { BiEnvelope } from "react-icons/bi";
+
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-b from-gray-800 to-gray-900 text-gray-300">
@@ -7,7 +9,7 @@ const Footer = () => {
           <div className="text-center">
             <h3 className="text-white text-lg font-semibold mb-2">Contact</h3>
             <p className="flex items-center justify-center text-gray-400">
-              <span className="mr-2">✉️</span> info@example.com
+              <BiEnvelope className="mr-2" /> info@example.com
             </p>
           </div>
 
@@ -21,7 +23,7 @@ const Footer = () => {
           {/* Credits */}
           <div className="text-center">
             <p className="text-gray-400">
-              Made with ❤️ by yash & nilanchal
+              Made with ❤️ by <a href="https://x.com/Yash0x01" target="_blank" className="hover:text-white underline">yash</a> & <a href="https://x.com/dev_nilanxhal" target="_blank" className="hover:text-white underline">nilanchal</a>
             </p>
           </div>
         </div>
