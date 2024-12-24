@@ -58,7 +58,7 @@ const Features = () => {
     <section className="min-h-screen bg-gradient-to-b from-[#111111] to-gray-900 py-12">
       <div className="container mx-auto px-4">
         <div className="mb-10 text-center">
-          <h2 className="mb-2 text-2xl font-bold text-white">
+          <h2 className="mb-2 text-3xl font-bold text-white">
             Powerful Features for Domain Traders
           </h2>
           <p className="mx-auto max-w-2xl text-base text-gray-400">
