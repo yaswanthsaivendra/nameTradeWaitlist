@@ -8,7 +8,6 @@ import confetti from "canvas-confetti";
 const Hero = () => {
   const [email, setEmail] = useState("");
   const [waitlistCount, setWaitlistCount] = useState(0);
-  const [isSubmit, setIsSubmit] = useState(false);
 
   useEffect(() => {
     const getWaitlistCount = async () => {
@@ -53,7 +52,6 @@ const Hero = () => {
           colors: ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff"],
         });
         setEmail("");
-        setIsSubmit(true);
       } else {
         console.log("Something went wrong");
       }
@@ -122,23 +120,21 @@ const Hero = () => {
                 type="submit"
                 className="flow-row flex w-full items-center justify-center gap-x-2 rounded-lg bg-primary p-3 font-semibold text-black transition-colors duration-200 hover:bg-primary/80 md:w-[200px]"
               >
-                {!isSubmit ? "Congratualtions!" : "Join the Waitlist"}
-                {isSubmit && (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={3}
-                    stroke="currentColor"
-                    className="size-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                    />
-                  </svg>
-                )}
+                Join the Waitlist
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={3}
+                  stroke="currentColor"
+                  className="size-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                  />
+                </svg>
               </button>
             </div>
             <p className="text-md pt-2 font-normal text-gray-300">
