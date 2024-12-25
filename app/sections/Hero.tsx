@@ -71,12 +71,17 @@ const Hero = () => {
     >
       <Toaster position="top-center" />
       {/* Logo */}
-      <div className="absolute left-8 top-8">
+      <motion.div 
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        className="absolute left-8 top-8"
+      >
         <h1 className="text-3xl font-bold">
           <span className="text-primary">Dom</span>
           <span className="text-white">Sell</span>
         </h1>
-      </div>
+      </motion.div>
 
       <div className="container mx-auto max-w-6xl px-4">
         <motion.div
