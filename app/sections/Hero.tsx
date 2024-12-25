@@ -1,25 +1,63 @@
 "use client";
 // import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RegistrarPartners from "./RegistrarPartners";
 import { motion } from "framer-motion";
-import confetti from 'canvas-confetti';
+import confetti from "canvas-confetti";
 
 const Hero = () => {
   const [email, setEmail] = useState("");
+  const [waitlistCount, setWaitlistCount] = useState(0);
+
+  useEffect(() => {
+    const getWaitlistCount = async () => {
+      try {
+        const response = await fetch("/api/email");
+        if (!response.ok) {
+          throw new Error("Failed to fetch waitlist count");
+        }
+        const data = await response.json();
+        const count = data?.user.length;
+        setWaitlistCount(count);
+      } catch (error) {
+        console.error("Error fetching waitlist count:", error);
+      }
+    };
+
+    getWaitlistCount();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement waitlist functionality
-    
-    
-    // Trigger confetti celebration
-    confetti({
-      particleCount: 100,
-      spread: 70,
-      origin: { y: 0.6 },
-      colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff']
-    });
+
+    console.log(email);
+
+    try {
+      const response = await fetch("/api/email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      console.log(response);
+      const result = await response.json();
+
+      if (result.success) {
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff"],
+        });
+        setEmail("");
+      } else {
+        console.log("Something went wrong");
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -27,24 +65,6 @@ const Hero = () => {
       data-aos="fade-up"
       className="relative flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-gray-900 to-[#111111] py-24 text-white"
     >
-      {/* LOGO */}
-      <motion.div
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.1 }}
-        className="absolute left-8 top-8 text-3xl font-bold"
-      >
-        <span className="text-primary">Dom</span>
-        <span className="text-white">Sell</span>
-      </motion.div>
-
-      {/* <Image
-        src="/tube.svg"
-        alt="Tubes"
-        width={200}
-        height={200}
-        className="absolute left-0 top-0 w-20 md:w-44"
-      /> */}
       <div className="container mx-auto max-w-6xl px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -68,8 +88,6 @@ const Hero = () => {
             {/* HERO HEADING */}
             <h1 className="mx-auto py-2 text-3xl font-bold leading-tight md:text-6xl">
               Turn Domains Into Opportunities
-              {/* <span className="text-primary">&lt;</span>Buy, Resell, and Manage
-              <span className="text-primary">/&gt;</span> */}
               <span className="text-primary"> Buy, Resell and Manage</span>
             </h1>
 
@@ -122,7 +140,7 @@ const Hero = () => {
             <p className="text-md pt-2 font-normal text-gray-300">
               Join{" "}
               <span className="font-semibold text-primary">
-                0
+                {waitlistCount}
               </span>{" "}
               others already on the waitlist
             </p>
