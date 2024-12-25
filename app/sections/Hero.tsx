@@ -27,6 +27,17 @@ const Hero = () => {
       data-aos="fade-up"
       className="relative flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-gray-900 to-[#111111] py-24 text-white"
     >
+      {/* LOGO */}
+      <motion.div
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.1 }}
+        className="absolute left-8 top-8 text-3xl font-bold"
+      >
+        <span className="text-primary">Dom</span>
+        <span className="text-white">Sell</span>
+      </motion.div>
+
       {/* <Image
         src="/tube.svg"
         alt="Tubes"
