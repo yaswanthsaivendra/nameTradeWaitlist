@@ -3,6 +3,7 @@
 import { useState } from "react";
 import RegistrarPartners from "./RegistrarPartners";
 import { motion } from "framer-motion";
+import confetti from 'canvas-confetti';
 
 const Hero = () => {
   const [email, setEmail] = useState("");
@@ -10,7 +11,15 @@ const Hero = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // TODO: Implement waitlist functionality
-    alert('Waitlist functionality coming soon!');
+    
+    
+    // Trigger confetti celebration
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+      colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff']
+    });
   };
 
   return (
