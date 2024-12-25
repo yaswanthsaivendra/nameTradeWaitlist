@@ -4,7 +4,7 @@ import RegistrarPartners from "./RegistrarPartners";
 import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
 import toast from "react-hot-toast";
-import { Toaster } from 'react-hot-toast';
+import { Toaster } from "react-hot-toast";
 
 const Hero = () => {
   const [email, setEmail] = useState("");
@@ -53,9 +53,13 @@ const Hero = () => {
         setWaitlistCount(waitlistCount + 1);
       } else {
         if (result.error === "Email already exists") {
-          toast.success("You're already on our waitlist! Thanks for your enthusiasm!");
+          toast.success(
+            "You're already on our waitlist! Thanks for your enthusiasm!",
+          );
+          setEmail("");
         } else {
           toast.error("Something went wrong. Please try again.");
+          setEmail("");
         }
       }
     } catch (err) {
@@ -71,7 +75,7 @@ const Hero = () => {
     >
       <Toaster position="top-center" />
       {/* Logo */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
