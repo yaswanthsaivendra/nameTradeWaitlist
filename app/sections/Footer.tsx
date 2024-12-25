@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -7,10 +6,10 @@ const Footer = () => {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="flex flex-col items-start justify-between gap-y-4 px-6 md:flex-row md:items-center">
           {/* COMPANY INFO */}
-          <div className="text-2xl font-bold">
-            <Image src="/goDaddy.svg" alt="Logo" width={100} height={100} />
-            DomSell
-          </div>
+          <h1 className="text-3xl font-bold">
+            <span className="text-primary">Dom</span>
+            <span className="text-white">Sell</span>
+          </h1>
           <div className="flex flex-col items-start">
             {/* Contact Info */}
             <div className="flex flex-row items-center justify-center text-center">
