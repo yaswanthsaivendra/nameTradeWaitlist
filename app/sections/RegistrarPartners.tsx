@@ -18,7 +18,7 @@ const RegistrarPartners = () => {
     <section className="pt-10">
       <div className="container mx-auto px-4">
         <h2 className="text-center text-xl font-semibold text-white md:text-2xl">
-          Connect with any of these
+          We support these domain registrars
         </h2>
         <div className="flex flex-wrap items-center justify-center gap-x-12">
           {registrars.map((registrar) => (

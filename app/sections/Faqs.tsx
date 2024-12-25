@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { BiChevronDown } from "react-icons/bi";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Faqs = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -29,8 +30,13 @@ const Faqs = () => {
   ];
 
   return (
-    <section className="bg-gray-900 py-20">
-      <div className="container mx-auto px-4">
+    <section className="bg-gray-900 py-12 md:pt-0 pb-12">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="container mx-auto px-4"
+      >
         <div className="mb-6 text-center">
           <h2 className="text-xl font-bold text-white md:text-3xl">
             Frequently Asked Questions
@@ -42,11 +48,15 @@ const Faqs = () => {
 
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2">
           {faqs.map((faq, index) => (
-            <div key={index} className="relative">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="relative"
+            >
               <button
-                className={`h-full w-full rounded-xl border border-gray-700 bg-gray-800/50 px-6 py-3 text-left transition-all duration-300 hover:bg-gray-800 md:px-8 md:py-4 ${
-                  openIndex === index ? "border-blue-500" : ""
-                }`}
+                className={`h-full w-full rounded-xl border border-gray-700 bg-gray-800/50 px-6 py-3 text-left`}
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
                 <div className="flex items-start gap-4">
@@ -61,20 +71,25 @@ const Faqs = () => {
                     <h3 className="mb-2 text-lg font-semibold text-white md:text-xl">
                       {faq.question}
                     </h3>
-                    <div
-                      className={`overflow-hidden transition-all duration-300 ${
-                        openIndex === index ? "max-h-48" : "max-h-0"
-                      }`}
-                    >
-                      <p className="text-gray-400">{faq.answer}</p>
-                    </div>
+                    <AnimatePresence>
+                      {openIndex === index && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <p className="text-gray-400">{faq.answer}</p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 </div>
               </button>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

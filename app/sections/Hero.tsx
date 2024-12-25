@@ -2,14 +2,15 @@
 // import Image from "next/image";
 import { useState } from "react";
 import RegistrarPartners from "./RegistrarPartners";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const [email, setEmail] = useState("");
-  const waitlistCount = 142; // This should be fetched from your backend
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Add your waitlist submission logic here
+    // TODO: Implement waitlist functionality
+    alert('Waitlist functionality coming soon!');
   };
 
   return (
@@ -25,14 +26,24 @@ const Hero = () => {
         className="absolute left-0 top-0 w-20 md:w-44"
       /> */}
       <div className="container mx-auto max-w-6xl px-4">
-        <div className="space-y-3 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="space-y-3 text-center"
+        >
           <div className="flex flex-col items-center justify-center">
             {/* CHIP DIV */}
-            <div className="text-md mb-4 flex h-7 items-center whitespace-nowrap rounded-xl border border-gray-700 bg-gradient-to-tr from-gray-950/80 to-gray-800/80 px-2 font-medium leading-5 text-gray-400 shadow-2xl shadow-primary">
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="text-md mb-4 flex h-7 items-center whitespace-nowrap rounded-xl border border-gray-700 bg-gradient-to-tr from-gray-950/80 to-gray-800/80 px-2 font-medium leading-5 text-gray-400 shadow-2xl shadow-primary"
+            >
               <span className="italic">
                 &quot;Let&apos;s ensure, no domain goes into vain!&quot;
               </span>
-            </div>
+            </motion.div>
 
             {/* HERO HEADING */}
             <h1 className="mx-auto py-2 text-3xl font-bold leading-tight md:text-6xl">
@@ -44,14 +55,20 @@ const Hero = () => {
 
             {/* HERO SUB-HEADING */}
             <p className="text-md mx-auto max-w-4xl text-gray-300 md:text-xl">
-              Don’t let domains sit idle. Resell with ease, buy from top
+              Don&apos;t let domains sit idle. Resell with ease, buy from top
               registrars, and manage your portfolio all in one place. Make your
               domains work for you!
             </p>
           </div>
 
           {/* HERO WAITLIST FORM */}
-          <form onSubmit={handleSubmit} className="mx-auto max-w-lg py-6">
+          <motion.form
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            onSubmit={handleSubmit}
+            className="mx-auto max-w-lg py-6"
+          >
             <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
               <input
                 type="email"
@@ -85,12 +102,12 @@ const Hero = () => {
             <p className="text-md pt-2 font-normal text-gray-300">
               Join{" "}
               <span className="font-semibold text-primary">
-                {waitlistCount.toLocaleString()}
+                0
               </span>{" "}
               others already on the waitlist
             </p>
-          </form>
-        </div>
+          </motion.form>
+        </motion.div>
       </div>
 
       <RegistrarPartners />
