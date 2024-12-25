@@ -77,6 +77,7 @@ const Features = () => {
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6 }}
         className="container mx-auto px-4"
       >
@@ -95,7 +96,7 @@ const Features = () => {
             variants={container}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
             className="mb-3 md:mb-12"
           >
             <div className="mx-auto grid w-full gap-y-3 md:w-[80%] md:gap-6 lg:grid-cols-3">
