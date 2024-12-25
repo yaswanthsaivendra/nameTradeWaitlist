@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
 import type { Viewport } from 'next'
+import { Analytics } from '@vercel/analytics/next';
 
  
 export const viewport: Viewport = {
@@ -13,6 +14,27 @@ const montserrat = Montserrat({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "DomSell",
   description: "Buy, Sell and Manage Domains",
+  openGraph: {
+    title: 'DomSell - Domain Trading Platform',
+    description: "Don't let domains sit idle. Resell with ease, buy from top registrars, and manage your portfolio all in one place. Make your domains work for you!",
+    url: 'https://domsell.com',
+    siteName: 'DomSell',
+    images: [
+      {
+        url: '/openGraph.png',
+        width: 800,
+        height: 600,
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'DomSell - Domain Trading Platform',
+    description: "Don't let domains sit idle. Resell with ease, buy from top registrars, and manage your portfolio all in one place. Make your domains work for you!",
+    images: ['/openGraph.png'],
+  },
   icons: {
     icon: [
       {
@@ -36,7 +58,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={montserrat.className}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

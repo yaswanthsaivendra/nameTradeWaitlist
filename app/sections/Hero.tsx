@@ -8,7 +8,7 @@ import { Toaster } from "react-hot-toast";
 
 const Hero = () => {
   const [email, setEmail] = useState("");
-  const [waitlistCount, setWaitlistCount] = useState(0);
+  const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
 
   useEffect(() => {
     const getWaitlistCount = async () => {
@@ -22,6 +22,8 @@ const Hero = () => {
         setWaitlistCount(count);
       } catch (error) {
         console.error("Error fetching waitlist count:", error);
+        // Set a fallback count in case of error
+        setWaitlistCount(0);
       }
     };
 
@@ -50,7 +52,7 @@ const Hero = () => {
           colors: ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff"],
         });
         setEmail("");
-        setWaitlistCount(waitlistCount + 1);
+        setWaitlistCount(prev => prev !== null ? prev + 1 : 1);
       } else {
         if (result.error === "Email already exists") {
           toast.success(
@@ -160,11 +162,17 @@ const Hero = () => {
               </button>
             </div>
             <p className="text-md pt-2 font-normal text-gray-300">
-              Join{" "}
-              <span className="font-semibold text-primary">
-                {waitlistCount}
-              </span>{" "}
-              others already on the waitlist
+              {waitlistCount === null ? (
+                <span className="animate-pulse">Loading waitlist count...</span>
+              ) : (
+                <>
+                  Join{" "}
+                  <span className="font-semibold text-primary">
+                    {waitlistCount}
+                  </span>{" "}
+                  others already on the waitlist
+                </>
+              )}
             </p>
           </motion.form>
         </motion.div>
