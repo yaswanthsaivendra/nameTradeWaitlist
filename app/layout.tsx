@@ -2,12 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
 import type { Viewport } from 'next'
+
  
 export const viewport: Viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f8f8f8' },
-    { media: '(prefers-color-scheme: dark)', color: '#212529' },
-  ],
+  themeColor: "#111111"
 }
 
 const montserrat = Montserrat({ subsets: ["latin"] });
