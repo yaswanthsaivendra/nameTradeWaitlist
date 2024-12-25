@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     siteName: 'DomSell',
     images: [
       {
-        url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Ctext x="35%25" y="50%25" dominant-baseline="central" text-anchor="middle" font-size="80" font-weight="bold" fill="%2300ffff"%3ED%3C/text%3E%3Ctext x="65%25" y="50%25" dominant-baseline="central" text-anchor="middle" font-size="80" font-weight="bold" fill="white"%3ES%3C/text%3E%3C/svg%3E',
+        url: '/openGraph.png',
         width: 800,
         height: 600,
       },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'DomSell - Domain Trading Platform',
     description: "Don't let domains sit idle. Resell with ease, buy from top registrars, and manage your portfolio all in one place. Make your domains work for you!",
-    images: ['data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Ctext x="35%25" y="50%25" dominant-baseline="central" text-anchor="middle" font-size="80" font-weight="bold" fill="%2300ffff"%3ED%3C/text%3E%3Ctext x="65%25" y="50%25" dominant-baseline="central" text-anchor="middle" font-size="80" font-weight="bold" fill="white"%3ES%3C/text%3E%3C/svg%3E'],
+    images: ['/openGraph.png'],
   },
   icons: {
     icon: [
