@@ -3,8 +3,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <div className="bg-gradient-to-b from-gray-900 to-[#111111] text-gray-300"
-    >
+    <div className="bg-gradient-to-b from-gray-900 to-[#111111] text-gray-300">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="flex flex-col items-start justify-between gap-y-4 px-6 md:flex-row md:items-center">
           {/* COMPANY INFO */}
