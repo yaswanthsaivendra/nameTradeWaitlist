@@ -1,9 +1,10 @@
 "use client";
-// import Image from "next/image";
 import { useEffect, useState } from "react";
 import RegistrarPartners from "./RegistrarPartners";
 import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
+import toast from "react-hot-toast";
+import { Toaster } from 'react-hot-toast';
 
 const Hero = () => {
   const [email, setEmail] = useState("");
@@ -30,8 +31,6 @@ const Hero = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    console.log(email);
-
     try {
       const response = await fetch("/api/email", {
         method: "POST",
@@ -41,7 +40,6 @@ const Hero = () => {
         body: JSON.stringify({ email }),
       });
 
-      console.log(response);
       const result = await response.json();
 
       if (result.success) {
@@ -52,11 +50,17 @@ const Hero = () => {
           colors: ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff"],
         });
         setEmail("");
+        setWaitlistCount(waitlistCount + 1);
       } else {
-        console.log("Something went wrong");
+        if (result.error === "Email already exists") {
+          toast.success("You're already on our waitlist! Thanks for your enthusiasm!");
+        } else {
+          toast.error("Something went wrong. Please try again.");
+        }
       }
     } catch (err) {
-      console.error(err);
+      console.log(err);
+      toast.error("Something went wrong. Please try again.");
     }
   };
 
@@ -65,6 +69,15 @@ const Hero = () => {
       data-aos="fade-up"
       className="relative flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-gray-900 to-[#111111] py-24 text-white"
     >
+      <Toaster position="top-center" />
+      {/* Logo */}
+      <div className="absolute left-8 top-8">
+        <h1 className="text-3xl font-bold">
+          <span className="text-primary">Dom</span>
+          <span className="text-white">Sell</span>
+        </h1>
+      </div>
+
       <div className="container mx-auto max-w-6xl px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
